@@ -6,8 +6,10 @@ from constants import HELLO
 from modalView import modalView
 # from messageBlocks import blocksOfDiff
 from product import oldProduct
+from dotenv import load_dotenv
 # Initialize the app
-app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
+load_dotenv()
+app = App(token=os.getenv('SLACK_BOT_TOKEN'))
 
 
 @app.shortcut("action_name_refresh")
@@ -35,20 +37,28 @@ def handle_submission(ack, body, client, view, logger):
     except Exception as e:
         logger.exception(f"Failed post a message {e}")
     diff_text = str(oldProduct)
-    send_diff(client, logger, message_id, diff_text)
-
-
+    react_emoji(client, logger,message_id, True)
+    # send_diff(client, logger, message_id, diff_text)
+def react_emoji(client, logger, message_id, answer):
+    try: 
+        if answer: 
+            result_1 = client.reactions_add(channel="C04MRB90FUL", timestamp=message_id, name="v")
+            result_2 = client.reactions_add(channel="C04MRB90FUL", timestamp=message_id, name="robot_face")
+        else: 
+            result = client.reactions_add(channel="C04MRB90FUL", timestamp=message_id, name="bangbang")
+    except Exception as e:
+        logger.exception(f"Failed to add reaction {e}")
 def send_diff(client, logger, message_id, diff_text: str):
     try:
         upload_and_then_share_file = client.files_upload_v2(
         channel="C04MRB90FUL",
         thread_ts=message_id,
         title="Diff product data",
-        filename="diff.json",
         content=diff_text,
         initial_comment="Here is the refresh result",
         snippet_type="json",
         ) 
+        print(upload_and_then_share_file)
         logger.info("send out the file")
     except Exception as e:
         logger.exception(f"Failed post a message {e}")
@@ -58,4 +68,4 @@ def send_diff(client, logger, message_id, diff_text: str):
 # Start the app
 if __name__ == "__main__":
     register_listeners(app)
-    SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
+    SocketModeHandler(app, os.getenv('SLACK_APP_TOKEN')).start()

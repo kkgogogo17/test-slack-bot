@@ -445,7 +445,8 @@ modalView = {
 				"type": "plain_text",
 				"text": "If an issue with accessing products on Storefront, include a link to the relevant PDP or Browse URL(optional)",
 				"emoji": True
-			}
+			},
+            "optional": True
 		},
 		{
 			"type": "input",
@@ -458,7 +459,8 @@ modalView = {
 				"type": "plain_text",
 				"text": "Do you have any more information about the issue you'd like to share?(optional)",
 				"emoji": True
-			}
+			},
+			"optional": True
 		}
 	]
 }

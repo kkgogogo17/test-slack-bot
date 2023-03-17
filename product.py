@@ -1,5 +1,5 @@
 oldProduct = {
-    'IreName': 'custom_image',
+    'IreName': '1212custom_image',
     'PrSKU': 'URED1101',
     'RomanceCopy': "A stylish and stable computer desk is your ideal choice. Welcome to purchase this desk. Tempered glass computer desk meets all your needs, stylish and avant-garde design, sturdy and stable X-shaped carbon steel structure, very stable and light, offers you a suitable space wherever you work at. Features: 0.2'' thickened tempered glass tabletop. 2''widened X-shaped carbon steel frame. Reinforced beam design. Desktop threading holes to avoid messy cables. The rounded corners are designed to prevent children from bumping. 4 PCS non-slip mats to avoid scratching the floor. Wide usage: This desk is perfect for office, study room, bedroom, living room, workstation, hotel room, and co-working spaces as a computer desk, meeting desk, study table, writing desk, gaming desk, corner desk, and shelves, etc.  Frame: X shape carbon steel frame. Self-assembly: All tools included.",
     'PrSpecialUnitPerBox': '1.0',

@@ -1,9 +1,10 @@
 from product import oldProduct
+from dotenv import load_dotenv
+import os 
+load_dotenv()
 
 def main(): 
-    print(type(oldProduct)) 
-    print(str(oldProduct)) 
-    print(type(str(oldProduct))) 
+    print(os.getenv('SLACK_APP_TOKEN'))    
 
 
 

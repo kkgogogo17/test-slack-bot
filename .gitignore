@@ -1,5 +1,6 @@
 # python virtualenv
 .venv 
+.env
 
 # vscode 
 .history
